@@ -8,6 +8,9 @@ pipeline {
                     echo "Multiline shell steps work too"
                     ls -lah
                 '''
+                timeout(time:1, unit:'MINUTES') {
+                    sh 'sleep 61'
+                }
             }
         }
     }
