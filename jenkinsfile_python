@@ -1,16 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Identification') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps work too"
-                    ls -lah
-                '''
+                sh 'echo "Whoami: $(whoami)"'
+                sh 'echo "Working dir: $(pwd)"'
+                sh 'echo "More detailed user attr: $(id)"'
+            }
+        }
+        stage('Execution') {
+            steps { 
                 retry(3) {
                     timeout(time:1, unit:'MINUTES') {
-                        sh 'sleep 61'
+                        sh 'echo "Hello World"'
                     }
                 }
             }
