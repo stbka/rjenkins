@@ -12,6 +12,7 @@ pipeline {
         }
         stage('Execution') {
             steps { 
+		sh 'ps -ef'
 	    	sh 'python --version'
                 sh 'python hello-world.py'
 	    }
