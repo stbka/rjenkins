@@ -24,6 +24,7 @@ pipeline {
     post {
         always {
             sh 'echo "This runs always"'
+	    deleteDir() /* Clean up workspace */
         }
         success {
             sh 'echo "This runs when job was successful."'
