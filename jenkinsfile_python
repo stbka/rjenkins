@@ -26,7 +26,7 @@ pipeline {
         success {
             sh 'echo "This runs when job was successful."'
         }
-        failed {
+        failure {
             sh 'echo "This runs when job was failed."'
         }
         unstable {
