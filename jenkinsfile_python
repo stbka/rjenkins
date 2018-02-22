@@ -12,12 +12,8 @@ pipeline {
         }
         stage('Execution') {
             steps { 
-                retry(3) {
-                    timeout(time:1, unit:'MINUTES') {
-                        sh 'echo "Hello World"'
-                    }
-                }
-            }
+                sh 'ls -l'
+	    }
         }
     }
       
