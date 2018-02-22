@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Execution') {
             steps { 
-                sh 'ls -l'
+                sh 'python hello-world.py'
 	    }
         }
     }
