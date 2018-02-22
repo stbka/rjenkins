@@ -17,5 +17,22 @@ pipeline {
                 }
             }
         }
+        post {
+            always {
+                sh 'echo "This runs always"'
+            }
+            success {
+                sh 'echo "This runs when job was successful."'
+            }
+            failed {
+                sh 'echo "This runs when job was failed."'
+            }
+            unstable {
+                sh 'echo "This runs when job was marked as unstable"'
+            }
+            changed {
+                sh 'echo "This runs when execution status changed."'
+            }
+        }
     }
 }
