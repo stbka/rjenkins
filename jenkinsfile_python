@@ -10,6 +10,11 @@ pipeline {
                 sh 'echo "More detailed user attr: $(id)"'
             }
         }
+	stage('SanityCheck') {
+	    steps {
+	    	input 'Should the execution be started?'
+	    }
+	}
         stage('Execution') {
             steps { 
 		sh 'ps -ef'
@@ -25,7 +30,7 @@ pipeline {
 	    deleteDir() /* Clean up workspace */
 	    mail to: 'thomas.mayer@fiz-karlsruhe.de',
 	    subject: "Job with remote repository was running: ${currentBuild.fullDisplayName}",
-	    body: "${env.BUILD_URL}"
+	    body: "-"
         }
         success {
             sh 'echo "This runs when job was successful."'
