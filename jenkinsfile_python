@@ -23,10 +23,9 @@ pipeline {
         always {
             sh 'echo "This runs always"'
 	    deleteDir() /* Clean up workspace */
-	    mail to 'thomas.mayer@fiz-karlsruhe.de' {
-	    	subject: 'Job with remote repository was running: ${currentBuild.fullDisplayName}'
-		body: '${env.BUILD_URL}'
-	    }	
+	    mail to: 'thomas.mayer@fiz-karlsruhe.de',
+	    subject: 'Job with remote repository was running: ${currentBuild.fullDisplayName}',
+	    body: '${env.BUILD_URL}'	
         }
         success {
             sh 'echo "This runs when job was successful."'
