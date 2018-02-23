@@ -20,7 +20,8 @@ pipeline {
 		sh 'ps -ef'
 	    	sh 'python --version'
                 sh 'python hello-world.py'
-		sh 'ls -lR /'
+		sh 'ls -l /'
+		sh 'find / -maxdepth 2 | xargs ls -l'
 	    }
         }
     }
